@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     TextView messageView;
     EditText inputView;
     Button sendBtn;
+    Button clearBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,11 +24,19 @@ public class MainActivity extends AppCompatActivity {
         messageView = (TextView) findViewById(R.id.text_message);
         inputView = (EditText) findViewById(R.id.edit_input);
         sendBtn = (Button) findViewById(R.id.btn_send);
+        clearBtn = (Button) findViewById(R.id.button);
 
         sendBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 messageView.setText(inputView.getText().toString());
+                inputView.setText("");
+            }
+        });
+
+        clearBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 inputView.setText("");
             }
         });
